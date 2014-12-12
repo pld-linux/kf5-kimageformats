@@ -1,30 +1,30 @@
 # TODO:
 # - dir /usr/share/kservices5 not packaged
-%define         _state          stable
-%define		orgname		kimageformats
+%define		kdeframever	5.4
+%define		qtver		5.3.2
+%define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
-Name:		kf5-%{orgname}
-Version:	5.0.0
+Name:		kf5-%{kfname}
+Version:	5.4.0
 Release:	0.1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/frameworks/%{version}/%{orgname}-%{version}.tar.xz
-# Source0-md5:	333084e7efc1efaa74c4008aec895ada
+Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
+# Source0-md5:	52d22faea44f3d8f008064f35bad1351
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel
-BuildRequires:	Qt5Core-devel
-BuildRequires:	Qt5DBus-devel
-BuildRequires:	Qt5Gui-devel >= 5.3.1
-BuildRequires:	Qt5PrintSupport-devel
-BuildRequires:	Qt5Test-devel
-BuildRequires:	Qt5Widgets-devel >= 5.3.1
-BuildRequires:	Qt5X11Extras-devel >= 5.2.0
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5DBus-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= %{qtver}
+BuildRequires:	Qt5PrintSupport-devel >= %{qtver}
+BuildRequires:	Qt5Test-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	Qt5X11Extras-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
-BuildRequires:	jasper-devel
 BuildRequires:	kf5-extra-cmake-modules >= 1.0.0
 BuildRequires:	libjpeg-devel
-BuildRequires:	qt5-linguist
+BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -57,23 +57,13 @@ The following image formats have read and write support:
 - XView (xv)
 
 %prep
-%setup -q -n %{orgname}-%{version}
+%setup -q -n %{kfname}-%{version}
 
 %build
 install -d build
 cd build
 %cmake \
-	-DBIN_INSTALL_DIR=%{_bindir} \
-	-DKCFG_INSTALL_DIR=%{_datadir}/config.kcfg \
-	-DPLUGIN_INSTALL_DIR=%{qt5dir}/plugins \
-	-DQT_PLUGIN_INSTALL_DIR=%{qt5dir}/plugins \
-	-DQML_INSTALL_DIR=%{qt5dir}/qml \
-	-DIMPORTS_INSTALL_DIR=%{qt5dirs}/imports \
-	-DSYSCONF_INSTALL_DIR=%{_sysconfdir} \
-	-DLIBEXEC_INSTALL_DIR=%{_libexecdir} \
-	-DKF5_LIBEXEC_INSTALL_DIR=%{_libexecdir} \
-	-DKF5_INCLUDE_INSTALL_DIR=%{_includedir} \
-	-DECM_MKSPECS_INSTALL_DIR=%{qt5dir}/mkspecs/modules \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	../
 %{__make}
 
@@ -89,10 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_dds.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_eps.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_exr.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_jp2.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_pcx.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_pic.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_psd.so
