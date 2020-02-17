@@ -1,15 +1,15 @@
-%define		kdeframever	5.65
+%define		kdeframever	5.67
 %define		qtver		5.9.0
 %define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
 Name:		kf5-%{kfname}
-Version:	5.65.0
+Version:	5.67.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	e7ce02709c2eaa30887e523e7bdb515f
+# Source0-md5:	3d17d70e54a82063c032ee9efee45874
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -77,6 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_hdr.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_eps.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_exr.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_kra.so
@@ -89,6 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_tga.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_xcf.so
 %dir %{_datadir}/kservices5/qimageioplugins
+%{_datadir}/kservices5/qimageioplugins/hdr.desktop
 %{_datadir}/kservices5/qimageioplugins/dds.desktop
 %{_datadir}/kservices5/qimageioplugins/eps.desktop
 %{_datadir}/kservices5/qimageioplugins/exr.desktop
