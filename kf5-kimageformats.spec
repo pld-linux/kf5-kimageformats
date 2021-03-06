@@ -1,15 +1,15 @@
-%define		kdeframever	5.67
+%define		kdeframever	5.79
 %define		qtver		5.9.0
 %define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
 Name:		kf5-%{kfname}
-Version:	5.67.0
+Version:	5.79.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	3d17d70e54a82063c032ee9efee45874
+# Source0-md5:	0408433275e69e30d282bde4d62b383f
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -89,7 +89,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_rgb.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_tga.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_xcf.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/imageformats/kimg_ani.so
 %dir %{_datadir}/kservices5/qimageioplugins
+%{_datadir}/kservices5/qimageioplugins/ani.desktop
 %{_datadir}/kservices5/qimageioplugins/hdr.desktop
 %{_datadir}/kservices5/qimageioplugins/dds.desktop
 %{_datadir}/kservices5/qimageioplugins/eps.desktop
