@@ -1,15 +1,15 @@
-%define		kdeframever	5.81
+%define		kdeframever	5.82
 %define		qtver		5.9.0
 %define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
 Name:		kf5-%{kfname}
-Version:	5.81.0
+Version:	5.82.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	81c96aef1336255410ae0f28bf584132
+# Source0-md5:	1758d2178b544d5883bfed2279c670bf
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
