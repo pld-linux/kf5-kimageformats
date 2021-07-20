@@ -11,7 +11,7 @@ Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	13fcf98b64184a5792325fc39f8a5da1
 URL:		http://www.kde.org/
-BuildRequires:	OpenEXR-devel >= 3.0.5
+BuildRequires:	OpenEXR-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
