@@ -77,6 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_avif.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_hdr.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_eps.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_exr.so
@@ -92,6 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/qt5/plugins/imageformats/kimg_ani.so
 %dir %{_datadir}/kservices5/qimageioplugins
 %{_datadir}/kservices5/qimageioplugins/ani.desktop
+%{_datadir}/kservices5/qimageioplugins/avif.desktop
 %{_datadir}/kservices5/qimageioplugins/hdr.desktop
 %{_datadir}/kservices5/qimageioplugins/dds.desktop
 %{_datadir}/kservices5/qimageioplugins/eps.desktop
