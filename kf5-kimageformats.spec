@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.98
+%define		kdeframever	5.99
 %define		qtver		5.15.2
 %define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
 Name:		kf5-%{kfname}
-Version:	5.98.0
+Version:	5.99.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	602b5722184c84d8167c5927f5310014
+# Source0-md5:	e6a2aef42295a9673fa83711fd893770
 URL:		http://www.kde.org/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -88,21 +88,22 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_avif.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_hdr.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_eps.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_exr.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_jxl.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_kra.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_ora.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_pcx.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_pic.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_psd.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_ras.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_rgb.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_tga.so
-%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_xcf.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/imageformats/kimg_ani.so
+%{qt5dir}/plugins/imageformats/kimg_ani.so
+%{qt5dir}/plugins/imageformats/kimg_avif.so
+%{qt5dir}/plugins/imageformats/kimg_hdr.so
+%{qt5dir}/plugins/imageformats/kimg_eps.so
+%{qt5dir}/plugins/imageformats/kimg_exr.so
+%{qt5dir}/plugins/imageformats/kimg_jxl.so
+%{qt5dir}/plugins/imageformats/kimg_kra.so
+%{qt5dir}/plugins/imageformats/kimg_ora.so
+%{qt5dir}/plugins/imageformats/kimg_pcx.so
+%{qt5dir}/plugins/imageformats/kimg_pic.so
+%{qt5dir}/plugins/imageformats/kimg_psd.so
+%{qt5dir}/plugins/imageformats/kimg_ras.so
+%{qt5dir}/plugins/imageformats/kimg_raw.so
+%{qt5dir}/plugins/imageformats/kimg_rgb.so
+%{qt5dir}/plugins/imageformats/kimg_tga.so
+%{qt5dir}/plugins/imageformats/kimg_xcf.so
 %dir %{_datadir}/kservices5/qimageioplugins
 %{_datadir}/kservices5/qimageioplugins/ani.desktop
 %{_datadir}/kservices5/qimageioplugins/avif.desktop
@@ -118,6 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/qimageioplugins/pic.desktop
 %{_datadir}/kservices5/qimageioplugins/psd.desktop
 %{_datadir}/kservices5/qimageioplugins/ras.desktop
+%{_datadir}/kservices5/qimageioplugins/raw.desktop
 %{_datadir}/kservices5/qimageioplugins/rgb.desktop
 %{_datadir}/kservices5/qimageioplugins/tga.desktop
 %{_datadir}/kservices5/qimageioplugins/xcf.desktop
