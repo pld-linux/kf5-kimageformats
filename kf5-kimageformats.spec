@@ -6,6 +6,7 @@
 %define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
+Summary(pl.UTF-8):	Wtyczki formatów obrazów dla Qt
 Name:		kf5-%{kfname}
 Version:	5.103.0
 Release:	1
@@ -13,7 +14,7 @@ License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	d3b193a9d8c6f93186cf7ac8c888a3db
-URL:		http://www.kde.org/
+URL:		https://kde.org/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
@@ -44,7 +45,6 @@ may be a runtime requirement for Qt-based software to support certain
 image formats.
 
 The following image formats have read-only support:
-
 - DirectDraw Surface (dds)
 - Gimp (xcf)
 - OpenEXR (exr)
@@ -52,13 +52,34 @@ The following image formats have read-only support:
 - Sun Raster (ras)
 
 The following image formats have read and write support:
-
 - Encapsulated PostScript (eps)
 - JPEG-2000 (jp2)
 - Personal Computer Exchange (pcx)
 - SGI images (rgb, rgba, sgi, bw)
 - Softimage PIC (pic)
 - Targa (tga): supports more formats than Qt's version
+- XView (xv)
+
+%description -l pl.UTF-8
+Ten szkielet zapewnia dodatkowe wtyczki formatów obrazów dla QtGui.
+Jako takie niest jest wymagany do budowania innego oprogramowania, ale
+może być zależnością wymaganą do obsługi pewnych formatów przez
+programy oparte na Qt.
+
+Następujące formaty obrazów mają obsługę wyłącznie odczytu:
+- DirectDraw Surface (dds)
+- Gimp (xcf)
+- OpenEXR (exr)
+- dokumenty Photoshopa (psd)
+- Sun Raster (ras)
+
+Następujące formaty obrazów mają obsługę odczytu i zapisu:
+- Encapsulated PostScript (eps)
+- JPEG-2000 (jp2)
+- Personal Computer Exchange (pcx)
+- obrazy SGI (rgb, rgba, sgi, bw)
+- Softimage PIC (pic)
+- Targa (tga): więcej formatów, niż jest obsługiwanych w wersji Qt
 - XView (xv)
 
 %prep
@@ -77,7 +98,6 @@ cd build
 ctest
 %endif
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
@@ -88,22 +108,22 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%{qt5dir}/plugins/imageformats/kimg_ani.so
-%{qt5dir}/plugins/imageformats/kimg_avif.so
-%{qt5dir}/plugins/imageformats/kimg_hdr.so
-%{qt5dir}/plugins/imageformats/kimg_eps.so
-%{qt5dir}/plugins/imageformats/kimg_exr.so
-%{qt5dir}/plugins/imageformats/kimg_jxl.so
-%{qt5dir}/plugins/imageformats/kimg_kra.so
-%{qt5dir}/plugins/imageformats/kimg_ora.so
-%{qt5dir}/plugins/imageformats/kimg_pcx.so
-%{qt5dir}/plugins/imageformats/kimg_pic.so
-%{qt5dir}/plugins/imageformats/kimg_psd.so
-%{qt5dir}/plugins/imageformats/kimg_ras.so
-%{qt5dir}/plugins/imageformats/kimg_raw.so
-%{qt5dir}/plugins/imageformats/kimg_rgb.so
-%{qt5dir}/plugins/imageformats/kimg_tga.so
-%{qt5dir}/plugins/imageformats/kimg_xcf.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_ani.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_avif.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_hdr.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_eps.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_exr.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_jxl.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_kra.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_ora.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_pcx.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_pic.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_psd.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_ras.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_raw.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_rgb.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_tga.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_xcf.so
 %dir %{_datadir}/kservices5/qimageioplugins
 %{_datadir}/kservices5/qimageioplugins/ani.desktop
 %{_datadir}/kservices5/qimageioplugins/avif.desktop
