@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.105
+%define		kdeframever	5.106
 %define		qtver		5.15.2
 %define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
 Summary(pl.UTF-8):	Wtyczki formatów obrazów dla Qt
 Name:		kf5-%{kfname}
-Version:	5.105.0
+Version:	5.106.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	3f9392211d0b7de8954e99582320295e
+# Source0-md5:	8c8f404c8628aa3db7b37bef6de53664
 URL:		https://kde.org/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
