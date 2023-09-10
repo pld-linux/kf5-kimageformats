@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.109
+%define		kdeframever	5.110
 %define		qtver		5.15.2
 %define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
 Summary(pl.UTF-8):	Wtyczki formatów obrazów dla Qt
 Name:		kf5-%{kfname}
-Version:	5.109.0
-Release:	2
+Version:	5.110.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	777d46bc3c7c7e66804402220dac2df0
+# Source0-md5:	860e3bc411ea8dca6bb90f1ad589cc17
 URL:		https://kde.org/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	Qt5Core-devel >= %{qtver}
@@ -63,8 +63,8 @@ The following image formats have read and write support:
 %description -l pl.UTF-8
 Ten szkielet zapewnia dodatkowe wtyczki formatów obrazów dla QtGui.
 Jako takie niest jest wymagany do budowania innego oprogramowania, ale
-może być zależnością wymaganą do obsługi pewnych formatów przez
-programy oparte na Qt.
+może być zależnością wymaganą do obsługi pewnych formatów
+przez programy oparte na Qt.
 
 Następujące formaty obrazów mają obsługę wyłącznie odczytu:
 - DirectDraw Surface (dds)
@@ -123,6 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_rgb.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_tga.so
 %attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_xcf.so
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_qoi.so
 %dir %{_datadir}/kservices5/qimageioplugins
 %{_datadir}/kservices5/qimageioplugins/ani.desktop
 %{_datadir}/kservices5/qimageioplugins/avif.desktop
@@ -142,3 +143,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/qimageioplugins/rgb.desktop
 %{_datadir}/kservices5/qimageioplugins/tga.desktop
 %{_datadir}/kservices5/qimageioplugins/xcf.desktop
+%{_datadir}/kservices5/qimageioplugins/qoi.desktop
