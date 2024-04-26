@@ -30,7 +30,7 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libjxl-devel
 BuildRequires:	ninja
 BuildRequires:	qt5-linguist >= %{qtver}
-BuildRequires:	rpmbuild(macros) >= 1.164
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	kf5-dirs
@@ -89,6 +89,7 @@ Następujące formaty obrazów mają obsługę odczytu i zapisu:
 %cmake -B build \
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
+	-DKDE_INSTALL_SYSCONFDIR=%{_sysconfdir} \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 
 %ninja_build -C build
@@ -99,6 +100,7 @@ Następujące formaty obrazów mają obsługę odczytu i zapisu:
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %ninja_install -C build
 
 %clean
