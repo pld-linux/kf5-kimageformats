@@ -15,25 +15,30 @@ Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
 # Source0-md5:	63e0fd1101429ab4dd94130074e732bb
 URL:		https://kde.org/
-BuildRequires:	OpenEXR-devel
+BuildRequires:	OpenEXR-devel >= 3.0
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5DBus-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= %{qtver}
 BuildRequires:	Qt5PrintSupport-devel >= %{qtver}
 BuildRequires:	Qt5Test-devel >= %{qtver}
-BuildRequires:	Qt5Widgets-devel >= %{qtver}
+BuildRequires:	Qt5Widgets-devel >= 5.15.13
 BuildRequires:	Qt5X11Extras-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	libavif-devel >= 0.8.2
 BuildRequires:	libjpeg-devel
-BuildRequires:	libjxl-devel
+BuildRequires:	libjxl-devel >= 0.7.0
+BuildRequires:	libraw-devel >= 0.20.2
+BuildRequires:	libstdc++-devel >= 6:7
 BuildRequires:	ninja
+BuildRequires:	pkgconfig
 BuildRequires:	qt5-linguist >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	kf5-dirs
+Requires:	libjxl >= 0.7.0
+Requires:	libraw >= 0.20.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt5dir		%{_libdir}/qt5
