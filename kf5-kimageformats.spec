@@ -1,6 +1,8 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
+%bcond_without	heif		# HEIF/HEIC support via libheif
+
 %define		kdeframever	5.115
 %define		qtver		5.15.2
 %define		kfname		kimageformats
@@ -26,6 +28,7 @@ BuildRequires:	Qt5X11Extras-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
 BuildRequires:	kf5-extra-cmake-modules >= %{version}
 BuildRequires:	libavif-devel >= 0.8.2
+%{?with_heif:BuildRequires:	libheif-devel >= 1.10.0}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libjxl-devel >= 0.7.0
 BuildRequires:	libraw-devel >= 0.20.2
@@ -37,6 +40,7 @@ BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	kf5-dirs
+%{?with_heif:Requires:	libheif >= 1.10.0}
 Requires:	libjxl >= 0.7.0
 Requires:	libraw >= 0.20.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -95,7 +99,8 @@ Następujące formaty obrazów mają obsługę odczytu i zapisu:
 	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
 	-DKDE_INSTALL_SYSCONFDIR=%{_sysconfdir} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	%{?with_heif:-DKIMAGEFORMATS_HEIF=ON}
 
 %ninja_build -C build
 
@@ -151,3 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kservices5/qimageioplugins/tga.desktop
 %{_datadir}/kservices5/qimageioplugins/xcf.desktop
 %{_datadir}/kservices5/qimageioplugins/qoi.desktop
+%if %{with heif}
+%attr(755,root,root) %{qt5dir}/plugins/imageformats/kimg_heif.so
+%{_datadir}/kservices5/qimageioplugins/heif.desktop
+%endif
