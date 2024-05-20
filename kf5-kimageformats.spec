@@ -3,19 +3,19 @@
 %bcond_with	tests		# build with tests
 %bcond_without	heif		# HEIF/HEIC support via libheif
 
-%define		kdeframever	5.115
+%define		kdeframever	5.116
 %define		qtver		5.15.2
 %define		kfname		kimageformats
 
 Summary:	Image format plugins for Qt
 Summary(pl.UTF-8):	Wtyczki formatów obrazów dla Qt
 Name:		kf5-%{kfname}
-Version:	5.115.0
-Release:	2
+Version:	5.116.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	63e0fd1101429ab4dd94130074e732bb
+# Source0-md5:	20677ce5f140ac8f7551644a366100d0
 URL:		https://kde.org/
 BuildRequires:	OpenEXR-devel >= 3.0
 BuildRequires:	Qt5Core-devel >= %{qtver}
